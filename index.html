@@ -1,58 +1,116 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ed238e">
-  <meta name="referrer" content="no-referrer">
-  <meta name="description" content="Your Sticki Rolls Comic Con reward pass. Discover the crew, collect your progress, and visit the booth for rewards.">
-  <title>Your Comic Con Pass · Sticki Rolls</title>
-  <link rel="icon" href="assets/logo.webp">
-  <link rel="stylesheet" href="styles.css?v=20261022-2">
-  <script src="app.js?v=20261022-2" defer></script>
-  <script src="pass.js?v=20261022-2" defer></script>
-</head>
-<body>
-  <div class="topline">A LITTLE FOLLOW. A LOT OF STICKI FUN.</div>
-  <header class="hero">
-    <div class="hero-pattern" aria-hidden="true">✦ ♡ ✿ ★ ♡ ✦ ✿ ★</div>
-    <img class="logo" src="assets/logo.webp" alt="Sticki Rolls" width="244" height="160">
-    <div class="event-tag"><span></span> COMIC CON · YOUR REWARD PASS</div>
-    <h1>Get a free<br><span>bracelet!</span></h1>
-    <p>Meet the crew. Follow the fun.<br>Make your con day a little more Sticki.</p>
-    <span class="sticker star" aria-hidden="true">✦</span>
-    <span class="sticker heart" aria-hidden="true">♥</span>
-  </header>
-  <main>
-    <section class="activation" aria-labelledby="activation-title">
-      <h2 id="activation-title">Your pass, ready on your phone</h2>
-      <p>Open the social pages below, then show your personal QR code at the booth. No sign-up or printed ticket needed.</p>
-      <p id="pass-connection" role="status" aria-live="polite"></p>
-      <button type="button" id="retry-pass" hidden>Reconnect my pass</button>
-    </section>
-    <section class="pass" aria-labelledby="pass-title">
-      <div class="pass-heading"><div><span class="eyebrow">LET’S GET YOU SOME GOODIES</span><h2 id="pass-title">Your Sticki progress</h2></div><span class="ticket" aria-hidden="true">★</span></div>
-      <div class="progress-label"><strong id="progress-label">0 out of 6 collected</strong><span id="percent">0%</span></div>
-      <div id="progress" class="progress" role="progressbar" aria-label="Social links visited" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><div id="progress-fill"></div><div class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
-      <div class="reward-summary"><span><b id="spins">0</b> / 6 free spins</span><span id="bracelet-status">♡ Bracelet at 6</span></div>
-      <p id="progress-message" role="status" aria-live="polite">Your first reward is one tap away!</p>
-      <button id="show-pass" class="claim" disabled>Collect a link to unlock your pass <span>↗</span></button>
-    </section>
-    <div class="how"><span>1 <b>Open a page</b></span><i>→</i><span>2 <b>Give us a follow</b></span><i>→</i><span>3 <b>Visit our booth</b></span></div>
-    <section class="social-group" aria-labelledby="rolls-title"><div class="group-heading"><div><span class="eyebrow">THE ORIGINAL STICKER OBSESSION</span><h2 id="rolls-title">Sticki Rolls <span>✦</span></h2></div><span class="group-count" id="rolls-count">0 / 3</span></div><div id="rolls-links" class="links"></div></section>
-    <section class="social-group crew" aria-labelledby="crew-title"><div class="group-heading"><div><span class="eyebrow">YOUR NEW FAVORITE CREW</span><h2 id="crew-title">Sticki Crew <span>♡</span></h2></div><span class="group-count" id="crew-count">0 / 3</span></div><div id="crew-links" class="links"></div></section>
-    <aside class="booth-note"><span aria-hidden="true">✧</span><div><strong>All tapped out? Come say hi!</strong><p>Show your reward pass to the Sticki team at the booth to collect your goodies.</p></div></aside>
-    <section class="shop-card" aria-labelledby="shop-title">
-      <span class="eyebrow">TAKE THE STICKI FUN HOME</span>
-      <h2 id="shop-title">Keep the good times rolling!</h2>
-      <p>Find your next sticker obsession in our Amazon store.</p>
-      <a class="shop-button" data-track="amazon" href="https://www.amazon.com/stores/SkyCastle/page/B8FF9929-6C46-4494-8690-CEDB0B6CBB27?lp_asin=B0DZTVDNMP&amp;store_ref=bl_ast_dp_brandlogo_sto" target="_blank" rel="noopener noreferrer" aria-label="Shop on Amazon, opens in a new tab">Shop on Amazon <span aria-hidden="true">↗</span></a>
-      <small>No purchase needed to collect your event rewards.</small>
-    </section>
-    <footer><p>More Sticki? Find us on Facebook.</p><a data-track="rolls-facebook" href="https://www.facebook.com/stickirolls/" target="_blank" rel="noopener noreferrer">Sticki Rolls ↗</a><span>·</span><a data-track="crew-facebook" href="https://www.facebook.com/StickiCrew/" target="_blank" rel="noopener noreferrer">Sticki Crew ↗</a><p class="fineprint">Progress counts link visits, not verified follows. Each link earns one spin per pass, and the bracelet can be claimed once. We record link clicks with a random browser ID and your pass when connected to measure which pages visitors open. This page does not collect names or contact details. Your random browser ID and pass are saved in this browser; clearing browser data can lose your pass. Facebook and shopping clicks do not earn rewards.</p><p id="storage-note" class="fineprint" hidden>Browser storage is unavailable. Keep this page open and save your redemption QR. Your pass may be lost when you close this page.</p><span class="footer-brand">SMALL STICKERS. BIG CONNECTIONS.</span></footer>
-  </main>
-  <dialog id="reward-dialog"><button class="close" id="close-pass" aria-label="Close reward pass">×</button><span class="event-tag">COMIC CON REWARD PASS</span><h2>You’re on a roll!</h2><p class="pass-total" id="pass-total"></p><p id="pass-bracelet"></p><img id="pass-qr" alt="Your unique reward pass QR code" width="220" height="220" hidden><code id="display-pass-code"></code><div class="stamp">SHOW THIS AT THE BOOTH</div><p>The Sticki team will help you collect your rewards.</p><small>Staff must check this pass in the kiosk before issuing rewards. Only newly earned rewards can be claimed. Keep this code private.</small><button class="claim" id="done-pass">Keep exploring</button></dialog>
-  <noscript><div class="noscript">Enable JavaScript to use your reward pass and social links.</div></noscript>
-</body>
-</html>
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="theme-color" content="#ed238e">
+
+  <meta name="referrer" content="no-referrer">
+
+  <meta name="description" content="Your Sticki Rolls Comic Con reward pass. Discover the crew, collect your progress, and visit the booth for rewards.">
+
+  <title>Your Comic Con Pass · Sticki Rolls</title>
+
+  <link rel="icon" href="assets/logo.webp">
+
+  <link rel="stylesheet" href="styles.css?v=20261022-3">
+
+  <script src="app.js?v=20261022-3" defer></script>
+
+  <script src="pass.js?v=20261022-3" defer></script>
+
+</head>
+
+<body>
+
+  <div class="topline">A LITTLE FOLLOW. A LOT OF STICKI FUN.</div>
+
+  <header class="hero">
+
+    <div class="hero-pattern" aria-hidden="true">✦ ♡ ✿ ★ ♡ ✦ ✿ ★</div>
+
+    <img class="logo" src="assets/logo.webp" alt="Sticki Rolls" width="244" height="160">
+
+    <div class="event-tag"><span></span> COMIC CON · YOUR REWARD PASS</div>
+
+    <h1>Get a free<br><span>bracelet!</span></h1>
+
+    <p>Meet the crew. Follow the fun.<br>Follow one page for a bracelet + spin. Each extra page earns another spin.</p>
+
+    <span class="sticker star" aria-hidden="true">✦</span>
+
+    <span class="sticker heart" aria-hidden="true">♥</span>
+
+  </header>
+
+  <main>
+
+    <section class="activation" aria-labelledby="activation-title">
+
+      <h2 id="activation-title">Your pass, ready on your phone</h2>
+
+      <p>Open the social pages below, then show your personal QR code at the booth. No sign-up or printed ticket needed.</p>
+
+      <p id="pass-connection" role="status" aria-live="polite"></p>
+
+      <button type="button" id="retry-pass" hidden>Reconnect my pass</button>
+
+    </section>
+
+    <section class="pass" aria-labelledby="pass-title">
+
+      <div class="pass-heading"><div><span class="eyebrow">LET’S GET YOU SOME GOODIES</span><h2 id="pass-title">Your Sticki progress</h2></div><span class="ticket" aria-hidden="true">★</span></div>
+
+      <div class="progress-label"><strong id="progress-label">0 out of 6 collected</strong><span id="percent">0%</span></div>
+
+      <div id="progress" class="progress" role="progressbar" aria-label="Social links visited" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><div id="progress-fill"></div><div class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
+
+      <div class="reward-summary"><span><b id="spins">0</b> / 6 free spins</span><span id="bracelet-status">♡ Bracelet after your first page</span></div>
+
+      <p id="progress-message" role="status" aria-live="polite">Your first reward is one tap away!</p>
+
+      <button id="show-pass" class="claim" disabled>Collect a link to unlock your pass <span>↗</span></button>
+
+    </section>
+
+    <section id="completion" class="pass" hidden><h2>Thanks for your support!</h2><p id="completion-discount">Grab a 10% discount at the shop.</p><p id="completion-rewards"></p><button id="completion-pass" class="claim">Show my reward QR</button><small>Show your QR to the Sticki team to claim your rewards and kiosk discount.</small></section>
+    <div class="how"><span>1 <b>Open a page</b></span><i>→</i><span>2 <b>Give us a follow</b></span><i>→</i><span>3 <b>Visit our booth</b></span></div>
+
+    <section class="social-group" aria-labelledby="rolls-title"><div class="group-heading"><div><span class="eyebrow">THE ORIGINAL STICKER OBSESSION</span><h2 id="rolls-title">Sticki Rolls <span>✦</span></h2></div><span class="group-count" id="rolls-count">0 / 3</span></div><div id="rolls-links" class="links"></div></section>
+
+    <section class="social-group crew" aria-labelledby="crew-title"><div class="group-heading"><div><span class="eyebrow">YOUR NEW FAVORITE CREW</span><h2 id="crew-title">Sticki Crew <span>♡</span></h2></div><span class="group-count" id="crew-count">0 / 3</span></div><div id="crew-links" class="links"></div></section>
+
+    <aside class="booth-note"><span aria-hidden="true">✧</span><div><strong>All tapped out? Come say hi!</strong><p>Show your reward pass to the Sticki team at the booth to collect your goodies.</p></div></aside>
+
+    <section class="shop-card" aria-labelledby="shop-title">
+
+      <span class="eyebrow">TAKE THE STICKI FUN HOME</span>
+
+      <h2 id="shop-title">Keep the good times rolling!</h2>
+
+      <p>Find your next sticker obsession in our Amazon store.</p>
+
+      <a class="shop-button" data-track="amazon" href="https://www.amazon.com/stores/SkyCastle/page/B8FF9929-6C46-4494-8690-CEDB0B6CBB27?lp_asin=B0DZTVDNMP&amp;store_ref=bl_ast_dp_brandlogo_sto" target="_blank" rel="noopener noreferrer" aria-label="Shop on Amazon, opens in a new tab">Shop on Amazon <span aria-hidden="true">↗</span></a>
+
+      <small>No purchase needed to collect your event rewards.</small>
+
+    </section>
+
+    <footer><p>More Sticki? Find us on Facebook.</p><a data-track="rolls-facebook" href="https://www.facebook.com/stickirolls/" target="_blank" rel="noopener noreferrer">Sticki Rolls ↗</a><span>·</span><a data-track="crew-facebook" href="https://www.facebook.com/StickiCrew/" target="_blank" rel="noopener noreferrer">Sticki Crew ↗</a><p class="fineprint">Progress counts link visits, not verified follows. Each link earns one spin per pass, the first link unlocks one bracelet, and all six unlock a one-time 10% kiosk discount. We record link clicks with a random browser ID and your pass when connected to measure which pages visitors open. This page does not collect names or contact details. Your random browser ID and pass are saved in this browser; clearing browser data can lose your pass. Facebook and shopping clicks do not earn rewards.</p><p id="storage-note" class="fineprint" hidden>Browser storage is unavailable. Keep this page open and save your redemption QR. Your pass may be lost when you close this page.</p><span class="footer-brand">SMALL STICKERS. BIG CONNECTIONS.</span></footer>
+
+  </main>
+
+  <dialog id="reward-dialog"><button class="close" id="close-pass" aria-label="Close reward pass">×</button><span class="event-tag">COMIC CON REWARD PASS</span><h2>You’re on a roll!</h2><p class="pass-total" id="pass-total"></p><p id="pass-bracelet"></p><img id="pass-qr" alt="Your unique reward pass QR code" width="220" height="220" hidden><code id="display-pass-code"></code><div class="stamp">SHOW THIS AT THE BOOTH</div><p>The Sticki team will help you collect your rewards.</p><small>Staff must check this pass in the kiosk before issuing rewards. Only newly earned rewards can be claimed. Keep this code private.</small><button class="claim" id="done-pass">Keep exploring</button></dialog>
+
+  <noscript><div class="noscript">Enable JavaScript to use your reward pass and social links.</div></noscript>
+
+</body>
+
+</html>
+
 

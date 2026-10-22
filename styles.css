@@ -4,3 +4,5 @@
 .activation{background:var(--paper);border:2px solid var(--purple);border-radius:17px;padding:20px;margin-bottom:23px;box-shadow:0 5px var(--purple)}.activation h2{font-size:25px}.activation p{font-size:12px;line-height:1.6}.activation label{font-size:12px;font-weight:bold}.activation input{width:100%;padding:13px 10px;margin:9px 0 12px;border:2px solid #b6a6ca;border-radius:8px;font-size:13px;font-family:monospace}.activation>button{background:none;color:var(--purple);border:0;text-decoration:underline;font-size:11px;padding:8px 0}.activation .error{color:#9d2147}#pass-qr{display:block;max-width:100%;height:auto;margin:15px auto}#pass-qr[hidden]{display:none}#display-pass-code{display:block;font-size:12px;overflow-wrap:anywhere;margin:12px 0}.pass.redeemed{background:#f1e7ef}
 
 [hidden]{display:none!important}
+
+#completion.discount-ready #completion-discount{font-family:Knicknack,sans-serif;font-size:30px;color:var(--pink);line-height:1.2;margin:18px 0 12px}dialog.discount-ready .pass-total{font-size:60px;line-height:1.1;margin:20px 0 8px}

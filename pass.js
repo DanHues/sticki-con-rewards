@@ -83,9 +83,14 @@ function render(){const visited=new Set(pass?.visited||[]),count=visited.size,cl
  $('completion').hidden=!complete;document.querySelector('section.pass').hidden=complete;document.querySelectorAll('.social-group,.how,.booth-note,.activation').forEach(el=>el.hidden=complete);
  heroTitle.innerHTML=complete?'Thanks for<br><span>your support!</span>':originalTitle;heroText.innerHTML=complete?'You visited every page. You’re part of the Sticki crew!':originalText;
  $('completion-discount').textContent=pass?.claimedDiscount?'Your 10% kiosk discount has been claimed.':'Grab a 10% discount at the shop!';
- $('completion-rewards').textContent=`${available} unclaimed ${available===1?'spin':'spins'}${pass?.claimedBracelet?'':' + your free bracelet'}. Show your QR at the kiosk.`;
+ $('completion-rewards').textContent=pass?.claimedDiscount?'Thanks for being part of the Sticki crew!':'Show your QR at the kiosk to use your discount.';
+ $('completion-pass').textContent=pass?.claimedDiscount?'View my pass':'Show my 10% discount QR';
  $('completion-pass').disabled=!passCode;
- if(complete)$('pass-bracelet').textContent+=(pass?.claimedDiscount?' Your 10% kiosk discount has been claimed.':' + 10% off at the kiosk!');
+ $('reward-title').textContent=complete?(pass?.claimedDiscount?'Thanks for your support!':'A little thank-you!'):'You’re on a roll!';
+ $('reward-help').textContent=complete?'Show this QR to the Sticki team at checkout.':'The Sticki team will help you collect your rewards.';
+ if(complete){$('pass-total').textContent=!online?'Checking discount…':pass?.claimedDiscount?'Discount claimed':'10% OFF';$('pass-bracelet').textContent=!online?'Please wait for the live status.':pass?.claimedDiscount?'Thanks for shopping with us!':'Your kiosk purchase';}
+ $('completion').classList.toggle('discount-ready',complete&&!pass?.claimedDiscount);
+ $('reward-dialog').classList.toggle('discount-ready',complete&&!pass?.claimedDiscount);
  $('display-pass-code').textContent=passCode;document.querySelector('.pass').classList.toggle('redeemed',redeemed);
 
 }

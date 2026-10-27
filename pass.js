@@ -1,6 +1,6 @@
 'use strict';
 
-const SERVICE=location.hostname==='127.0.0.1'?'http://127.0.0.1:5173':'https://sticki-con-redemption-danhues.earthyplume72.chatgpt.site';
+const SERVICE=location.hostname==='127.0.0.1'?'http://127.0.0.1:5173':'https://sticki-con-redemption-danhues.danhues.chatgpt.site';
 
 const PASS_KEY='sticki-issued-pass-v1';
 
